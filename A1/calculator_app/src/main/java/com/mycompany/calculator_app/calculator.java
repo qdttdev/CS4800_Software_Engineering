@@ -29,7 +29,7 @@ public class calculator extends javax.swing.JFrame {
         {
             case 1: // Addition
                 ans = num + Double.parseDouble(jTextField1.getText());
-                jTextField1.setText(Double.toString(ans));
+                jTextField1.setText(Double.toString(ans));                
                 break;
             case 2: // Subtraction
                 ans = num - Double.parseDouble(jTextField1.getText());
@@ -43,6 +43,12 @@ public class calculator extends javax.swing.JFrame {
                 ans = num / Double.parseDouble(jTextField1.getText());
                 jTextField1.setText(Double.toString(ans));
                 break;
+        }
+        
+        // Limit digits to display all the calculator
+        if(jTextField1.getText().length() >= 15)
+        {
+            jTextField1.setText(jTextField1.getText().substring(0, 15));
         }
     }
     
@@ -140,6 +146,11 @@ public class calculator extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 23)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -517,6 +528,10 @@ public class calculator extends javax.swing.JFrame {
         arithmetic_operation();
         jLabel1.setText("");
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
     
     /**
      * @param args the command line arguments
